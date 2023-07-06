@@ -1,13 +1,13 @@
 rules:
   validators:
-    samolet.technologies:
+    swamp.technologies:
       title: Контроль технологий
-    samolet.technologies.empty:
+    swamp.technologies.empty:
       title: У системы не указаны технологии
       source: >
         (
           $MANIFEST := $;
-          $matcher := /^.*[world, samolet]\.partners.*$/;
+          $matcher := /^.*[world, swamp]\.partners.*$/;
           $MANIFEST.components.$spread().(
             $COMPONENT_ID := $keys()[0];
             $matcher($COMPONENT_ID) ? '' : $.*.{

@@ -1,6 +1,6 @@
 rules:
   validators:
-    system: # https://dochub.samoletgroup.ru/docs/dochub_system_structure
+    system: 
       title: Валидатор систем/сервисов
       schema:                                         # JSON Schema
         type: object
@@ -48,7 +48,7 @@ rules:
               $ID := $keys()[0];              
               {                                                               /* Генерируем массив признаков проблем */
                 "isSystem": *.entity = "system",                           /* Это система */
-                "isFitDomain": $boolean($match($ID, /samolet\.*\.*/)), 
+                "isFitDomain": $boolean($match($ID, /swamp\.*\.*/)), 
                 "id": $ID,                                                    /* Запоминаем идентификатор компонента */
                 "isvalid": $validator($.*)                                    /* Валидируем компонент по схеме */									
               }
