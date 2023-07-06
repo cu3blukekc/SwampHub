@@ -1,0 +1,10 @@
+imports:
+  - swamp/root.yaml
+  - dochub/root.yaml
+  - datasets/root.yaml
+  - jsonata/root.yaml
+
+swamphub:
+  metamodel:
+    version: <VERSION>
+
