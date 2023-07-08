@@ -22,3 +22,7 @@
 [submodule "frontend/dochub"]
 	path = frontend/dochub
 	url = https://github.com/RabotaRu/DocHub.git
+
+[submodule "plantuml-server"]
+	path = plantuml-server
+	url = https://github.com/vlad-markin/plantuml-server.git
