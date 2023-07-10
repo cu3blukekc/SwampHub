@@ -95,6 +95,8 @@ services:
       VUE_APP_DOCHUB_RENDER_CORE: ELK
     depends_on:
       backend:
+        condition: service_healthy            
+      plantuml:
         condition: service_healthy
     ports:
       - "8080:80"
