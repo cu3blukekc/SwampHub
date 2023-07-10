@@ -33,6 +33,22 @@ services:
     ports:
       - "8082:80"
 
+  plantuml:
+    build:
+      context: plantuml
+      dockerfile: Dockerfile.jetty
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/plantuml/svg/Iyv9B2vMA4ajBW40 || exit 1"]
+      interval: 1s
+      timeout: 1s
+      retries: 60
+      start_period: 1s
+    image: plantuml/plantuml-server:jetty-local    
+    ports:
+      - 9000:8080
+    environment:
+      - BASE_URL=plantuml
+
   backend:
     build:
       context: backend
@@ -83,13 +99,3 @@ services:
     ports:
       - "8080:80"
 
-  plantuml-server:
-    build:
-      context: plantuml-server
-      dockerfile: Dockerfile.jetty
-    image: plantuml/plantuml-server:jetty-local
-    container_name: plantuml-server
-    ports:
-      - 9000:8080
-    environment:
-      - BASE_URL=plantuml

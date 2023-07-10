@@ -5,6 +5,6 @@
 	path = frontend/dochub
 	url = ../../RabotaRu/DocHub.git
 [submodule "plantuml-server"]
-	path = plantuml-server
+	path = plantuml
 	url = ../../vlad-markin/plantuml-server.git
 	branch = dochub-v2
