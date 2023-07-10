@@ -1,28 +1,10 @@
-[submodule "dochub"]
-	path = dochub
-	url = ../dochub.git
-[submodule "metamodel"]
-	path = metamodel
-	url = ../metamodel
-[submodule "frontend"]
-	path = frontend
-	url = ../frontend
-[submodule "manifest"]
-	path = manifest
-	url = ../manifest
-[submodule "backend"]
-	path = backend
-	url = ../backend
-[submodule "warmer"]
-	path = warmer
-	url = ../warmer
 [submodule "backend/dochub"]
 	path = backend/dochub
-	url = https://github.com/RabotaRu/DocHub.git
+	url = ../../RabotaRu/DocHub.git
 [submodule "frontend/dochub"]
 	path = frontend/dochub
-	url = https://github.com/RabotaRu/DocHub.git
-
+	url = ../../RabotaRu/DocHub.git
 [submodule "plantuml-server"]
 	path = plantuml-server
-	url = https://github.com/vlad-markin/plantuml-server.git
+	url = ../../vlad-markin/plantuml-server.git
+	branch = dochub-v2
