@@ -43,5 +43,4 @@ COPY --from=build /dochub/dist ./dist
 COPY --from=build /dochub/public ./public
 
 COPY ./entrypoint.sh /entrypoint.sh
-EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]

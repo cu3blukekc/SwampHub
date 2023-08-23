@@ -1,3 +1,17 @@
 .idea
 .vscode
 .env
+
+manifest/**/*
+
+!**/*.jpg
+!**/*.json
+!**/*.md
+!**/*.mmd
+!**/*.png
+!**/*.puml
+!**/*.txt
+!**/*.vsix
+!**/*.xml
+!**/*.yaml
+!**/*.yml
