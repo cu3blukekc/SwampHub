@@ -89,8 +89,6 @@ services:
 
       VUE_APP_DOCHUB_BACKEND_URL: http://localhost:8080/ # прямой ход в backend - http://localhost:3030
       VUE_APP_DOCHUB_ROOT_DOCUMENT: swamp.welcome
-      VUE_APP_DOCHUB_JSONATA_ANALYZER: y
-      # TODO Добавить контейнер PlantUML от Владимира
       VUE_APP_PLANTUML_SERVER: http://localhost:9000/plantuml/svg/
       VUE_APP_DOCHUB_RENDER_CORE: ELK
     depends_on:
