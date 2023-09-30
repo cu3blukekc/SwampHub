@@ -1,6 +1,0 @@
-@startwbs
-* Справочники
-{{#.}}
-{{level}} [[{{&link}} {{title}}]]
-{{/.}}
-@endwbs

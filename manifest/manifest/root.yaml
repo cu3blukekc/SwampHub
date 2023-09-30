@@ -1,7 +1,0 @@
-imports:
-- swamp/_root.yaml
-swamphub:
-  manifest:    
-    version: <VERSION>
-  collector:
-    accounts: asdsadsadsadsadsa
