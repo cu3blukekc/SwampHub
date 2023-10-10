@@ -55,7 +55,7 @@
 
 ## Использование
 
-## Быстрый старт
+### Быстрый старт
 1. Клонируйте себе пример `git clone --recurse-submodules https://github.com/cu3blukekc/SwampHub.git` либо просто клонируйте себе репозиторий и выполните команды `git submodule init && git submodule update` 
 2. Создайте в корне файл .env
 2. Выполните команду docker-compose up или docker compose up (v2)
