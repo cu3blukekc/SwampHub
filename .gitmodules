@@ -10,7 +10,7 @@
 	branch = dochub-v2
 [submodule "manifest/manifest"]
 	path = manifest/manifest
-	url = git@github.com:ValentinKozlov/DocHubExampleManifest.git
+	url = ../../ValentinKozlov/DocHubExampleManifest.git
 [submodule "metamodel/metamodel"]
 	path = metamodel/metamodel
-	url = git@github.com:ValentinKozlov/DocHubExampleMetamodel.git
+	url = ../../ValentinKozlov/DocHubExampleMetamodel.git
