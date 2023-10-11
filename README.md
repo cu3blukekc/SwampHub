@@ -49,10 +49,6 @@
 |  |- nginx.conf        - настройка nginx через который раздаются данные для бэкенда
 |- metamodel            - манифесты архитектурного озеры данных
 |  |- metamodel         - подмодуль ссылающийся на репозиторий с примером метамодели DocHubExampleMetamodel (https://github.com/ValentinKozlov/DocHubExampleMetamodel)
-|  |  |- datasets       - датасеты
-|  |  |- dochub         - дефолтная метамодель, а также дефолтные инструменты расширения этой метамодели.
-|  |  |- jsonata        - код jsonata, который мы переиспользуем через eval.
-|  |  |- swamp          - кастомная метамодель ГК Болото.
 |  |- Dockerfile        - настройка контейнера Docker
 |  |- nginx.conf        - настройка nginx через который раздаются данные для бэкенда
 |- docker-compose.yaml  - пакетный запуск контейнеров Docker.
