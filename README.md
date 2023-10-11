@@ -29,35 +29,41 @@
 ## Описание примера
 Все каталоги находящиеся в корневой директории можно рассматривать как отдельные репозитории.
 
-### Файловая структура примера
-* **backend** - конфигурация бэкенда
-    * **dochub** - подмодуль ссылающийся на оригинальный репозиторий [DocHub](https://github.com/RabotaRu/DocHub)
-    * **Dockerfile** - настройка контейнера Docker  
-    * **entrypoint.sh** - запуск бэкенда
-* **frontend** - конфигурация фронтенда
-    * **dochub** - подмодуль ссылающийся на оригинальный репозиторий [DocHub](https://github.com/RabotaRu/DocHub)
-    * **Dockerfile** - настройка контейнера Docker
-    * **entrypoint.sh** - наполнение переменных для разных стендов DocHub, запуск nginx со статикой фронтенда
-    * **nginx.conf** - конфигурация nginx, важный нюанс: фронтенд проксирует бэкенд наружу, т.е. запросы проксируются с браузера через nginx фронтенда в бэкенд
-* **manifest** - манифесты архитектурного озеры данных
-    * **manifest** - подмодуль ссылающийся на репозиторий с примером данных [DocHubExampleManifest](https://github.com/ValentinKozlov/DocHubExampleManifest)
-    * **Dockerfile** - настройка контейнера Docker   
-    * **nginx.conf** - настройка nginx через который раздаются данные для бэкенда
-* **metamodel** - описание метамодели
-    * **metamodel** - подмодуль ссылающийся на репозиторий с примером метамодели [DocHubExampleMetamodel](https://github.com/ValentinKozlov/DocHubExampleMetamodel)
-        * **datasets** - датасеты
-        * **dochub** - дефолтная метамодель, а также дефолтные инструменты расширения этой метамодели.
-        * **jsonata** - код jsonata, который мы переиспользуем через eval.
-        * **swamp** - кастомная метамодель.        
-    * **Dockerfile** - настройка контейнера Docker.    
-    * **nginx.conf** - настройка nginx через который раздаются данные для бэкенда.
-* **docker-compose.yaml** - пакетный запуск контейнеров Docker.
 
+
+### Файловая структура примера
+
+```
+|- backend              - конфигурация бэкенда
+|  |- dochub            - подмодуль ссылающийся на оригинальный репозиторий [DocHub](https://github.com/RabotaRu/DocHub)
+|  |- Dockerfile        - настройка контейнера Docker
+|  |- entrypoint.sh     - запуск бэкенда
+|- frontend             - конфигурация фронтенда
+|  |- dochub            - подмодуль ссылающийся на оригинальный репозиторий [DocHub](https://github.com/RabotaRu/DocHub)
+|  |- Dockerfile        - настройка контейнера Docker
+|  |- entrypoint.sh     - наполнение переменных для разных стендов DocHub, запуск nginx со статикой фронтенда
+|  |- nginx.conf        - конфигурация nginx, важный нюанс: фронтенд проксирует бэкенд наружу, т.е. запросы проксируются с браузера через nginx фронтенда в бэкенд
+|- manifest             - манифесты архитектурного озеры данных
+|  |- manifest          - подмодуль ссылающийся на репозиторий с примером данных [DocHubExampleManifest](https://github.com/ValentinKozlov/DocHubExampleManifest)
+|  |- Dockerfile        - настройка контейнера Docker
+|  |- nginx.conf        - настройка nginx через который раздаются данные для бэкенда
+|- metamodel            - манифесты архитектурного озеры данных
+|  |- metamodel         - подмодуль ссылающийся на репозиторий с примером метамодели [DocHubExampleMetamodel](https://github.com/ValentinKozlov/DocHubExampleMetamodel)
+|  |  |- datasets       - датасеты
+|  |  |- dochub         - дефолтная метамодель, а также дефолтные инструменты расширения этой метамодели.
+|  |  |- jsonata        - код jsonata, который мы переиспользуем через eval.
+|  |  |- swamp          - кастомная метамодель ГК Болото.
+|  |- Dockerfile        - настройка контейнера Docker
+|  |- nginx.conf        - настройка nginx через который раздаются данные для бэкенда
+|- docker-compose.yaml  - пакетный запуск контейнеров Docker.
+|- README.md            - описание репозитория
+
+```
 ## Использование
 
 ### Быстрый старт
 1. Клонируйте себе пример `git clone --recurse-submodules https://github.com/cu3blukekc/SwampHub.git` либо просто клонируйте себе репозиторий и выполните команды `git submodule init && git submodule update` 
-2. Создайте в корне файл .env
+2. Создайте в корне пустой файл .env
 2. Выполните команду docker-compose up или docker compose up (v2)
 3. Откройте браузер и наберите http://localhost:8080/ 
 4. Успех!
