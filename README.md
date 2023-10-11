@@ -35,20 +35,20 @@
 
 ```
 |- backend              - конфигурация бэкенда
-|  |- dochub            - подмодуль ссылающийся на оригинальный репозиторий [DocHub](https://github.com/RabotaRu/DocHub)
+|  |- dochub            - подмодуль ссылающийся на оригинальный репозиторий DocHub (https://github.com/RabotaRu/DocHub)
 |  |- Dockerfile        - настройка контейнера Docker
 |  |- entrypoint.sh     - запуск бэкенда
 |- frontend             - конфигурация фронтенда
-|  |- dochub            - подмодуль ссылающийся на оригинальный репозиторий [DocHub](https://github.com/RabotaRu/DocHub)
+|  |- dochub            - подмодуль ссылающийся на оригинальный репозиторий DocHub (https://github.com/RabotaRu/DocHub)
 |  |- Dockerfile        - настройка контейнера Docker
 |  |- entrypoint.sh     - наполнение переменных для разных стендов DocHub, запуск nginx со статикой фронтенда
 |  |- nginx.conf        - конфигурация nginx, важный нюанс: фронтенд проксирует бэкенд наружу, т.е. запросы проксируются с браузера через nginx фронтенда в бэкенд
 |- manifest             - манифесты архитектурного озеры данных
-|  |- manifest          - подмодуль ссылающийся на репозиторий с примером данных [DocHubExampleManifest](https://github.com/ValentinKozlov/DocHubExampleManifest)
+|  |- manifest          - подмодуль ссылающийся на репозиторий с примером данных DocHubExampleManifest (https://github.com/ValentinKozlov/DocHubExampleManifest)
 |  |- Dockerfile        - настройка контейнера Docker
 |  |- nginx.conf        - настройка nginx через который раздаются данные для бэкенда
 |- metamodel            - манифесты архитектурного озеры данных
-|  |- metamodel         - подмодуль ссылающийся на репозиторий с примером метамодели [DocHubExampleMetamodel](https://github.com/ValentinKozlov/DocHubExampleMetamodel)
+|  |- metamodel         - подмодуль ссылающийся на репозиторий с примером метамодели DocHubExampleMetamodel (https://github.com/ValentinKozlov/DocHubExampleMetamodel)
 |  |  |- datasets       - датасеты
 |  |  |- dochub         - дефолтная метамодель, а также дефолтные инструменты расширения этой метамодели.
 |  |  |- jsonata        - код jsonata, который мы переиспользуем через eval.
