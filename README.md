@@ -93,6 +93,8 @@
 - Устанавливаем Visual Studio Code (https://code.visualstudio.com)
 - Устанавливаем Git (https://git-scm.com/downloads)
 - Скачиваем образ focal64 Vagrant box (https://app.vagrantup.com/ubuntu/boxes/focal64)
+- Устанавливаем IntelliJ IDEA (https://www.jetbrains.com/idea/download/?section=windows), например, IntelliJ IDEA Community Edition
+- Устанавливаем VirtualBox (https://www.virtualbox.org/wiki/Downloads)
 
 ### Создание проекта
 - Создаем каталог проекта, например, "D:\Dochub\"
@@ -102,6 +104,7 @@
 - Создаем в каталоге проекта `D:\Dochub\SwampHub\` файл настройками образа `Vagrant` следующего содержания:
 ```   
    Vagrant.configure("2") do |config|
+     
      config.vm.box = "ubuntu/focal64"
    
      config.vm.provider "virtualbox" do |vb|
@@ -139,7 +142,8 @@
      if Vagrant.has_plugin?("vagrant-vbguest") then
        config.vbguest.auto_update = false
      end
-   
+     
+   end
 ```   
 - Запускаем VS Code в каталоге проекта.
 - Запускаем терминал (`CTRL+~`) и вводим команду `vagrant box add --name ubuntu/focal64 Vagrant.box`.
