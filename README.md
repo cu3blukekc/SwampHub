@@ -29,8 +29,6 @@
 ## Описание примера
 Все каталоги находящиеся в корневой директории можно рассматривать как отдельные репозитории.
 
-
-
 ### Файловая структура примера
 
 ```
@@ -87,15 +85,22 @@
 6. Проверьте что новые изменения подтянулись на портал DocHub
 
 
-## Вариант установки в Windows с использованием Vagrand
+## Вариант установки в Windows
 
-### Установка программного обеспечения
-* Устанавливаем Vagrant https://developer.hashicorp.com/vagrant/downloads (vagrant_2.4.0_windows_amd64.msi)
-* Устанавливаем VSCode (https://code.visualstudio.com)
-* Устанавливаем Git (https://git-scm.com/downloads)
-* Скачиваем образ `focal64 Vagrant box` (https://app.vagrantup.com/ubuntu/boxes/focal64)
+### С использованием Docker Desktop
+* [Установите Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
+* [Установите VSCode](https://code.visualstudio.com)
+* [Установите Git](https://git-scm.com/downloads)
+* Выполните [Быстрый старт](#быстрый-старт)
 
-### Создание проекта
+### С использованием Vagrand
+#### Установка программного обеспечения
+* [Устанавливаем Vagrant](https://developer.hashicorp.com/vagrant/downloads) (vagrant_2.4.0_windows_amd64.msi)
+* [Устанавливаем VSCode](https://code.visualstudio.com)
+* [Устанавливаем Git](https://git-scm.com/downloads)
+* [Скачиваем образ `focal64 Vagrant box`](https://app.vagrantup.com/ubuntu/boxes/focal64)
+
+#### Создание проекта
 * Создаем каталог проекта, например, `D:\Dochub\`. *Далее все примеры с этим путём*
 * Запускаем VSCode, в котором запускаем терминал (`CTRL+~`) и клонируем репозиторий, используя команду `git clone --recurse-submodules https://github.com/cu3blukekc/SwampHub.git`. В результате - клонирован репозиторий и каталоге `D:\Dochub\` создан подкаталог `SwampHub`
 * Для обновления файлов проекта можно использовать команду `git submodule init && git submodule update`
@@ -155,7 +160,7 @@
 * Проверяем список доступных виртуальных машин, используя команду `vagrant box list`. В списке должна быть вирутальная машина
   `ubuntu/focal64 (virtualbox, 0)`. Файл `Vagrant.box` можно удалять или переносить в другой каталог.
 
-### Создание виртуальной машины
+#### Создание виртуальной машины
 * Запускаем VSCode в каталоге проекта
 * Запускаем терминал (`CTRL+~`) и вводим команду `vagrant plugin install vagrant-docker-compose` для установки плагина (требуется VPN)
 * В каталоге проекта создаем файл `.env` следующего содержания `VUE_APP_DOCHUB_RELOAD_SECRET=[КЛЮЧ]`
@@ -177,7 +182,7 @@
   default: /vagrant => D:/Dev/Dochub/SwampHub
 ```
 
-### Сборка проекта
+#### Сборка проекта
 * Запускаем в Oracle VM VirtualBox и переходим в виртуальную машину с именем `SwampHub_defaul_*` (команда "Показать")
 * Вводим логин и пароль: vagrant / vagrant
 * Переходим в каталог `cd /vagrant`
@@ -187,7 +192,7 @@
 * Переходим в каталог `cd /vagrant`
 * Запускаем скрипт сборки проекта `./scripts/build.sh`(ожидаем завершения)
 
-### Запуск проекта
+#### Запуск проекта
 * Запускаем в Oracle VM VirtualBox и переходим в виртуальную машину с именем `SwampHub_defaul_*` (команда "Показать")
 * Вводим логин и пароль: vagrant / vagrant
 * Переходим в каталог `cd /vagrant`
