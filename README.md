@@ -58,10 +58,10 @@
 ### Быстрый старт
 1. Клонируйте себе пример `git clone --recurse-submodules https://github.com/cu3blukekc/SwampHub.git` либо просто клонируйте себе репозиторий, перейдите в него и выполните команды `git submodule init && git submodule update`.
 В случае с Windows используйте для клонирования только PowerShell, также на винде не всегда отрабатывает команда `git clone --recurse-submodules`, поэтому выполните следующие шаги:
-  * Выполните команду git clone https://github.com/cu3blukekc/SwampHub.git
-  * Перейдите в папку SwampHub
-  * Выполните команду `git submodule init`
-  * Выполните команду `git submodule update` (выполняется минут 10-15)  
+    * Выполните команду git clone https://github.com/cu3blukekc/SwampHub.git
+    * Перейдите в папку SwampHub
+    * Выполните команду `git submodule init`
+    * Выполните команду `git submodule update` (выполняется минут 10-15)  
 2. Создайте в корне пустой файл .env
 2. Выполните команду docker-compose up или docker compose up (v2)
 3. Откройте браузер и наберите http://localhost:8080/ 
