@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1.4
-FROM node:16-alpine as pre
+FROM node:20-alpine as pre
 WORKDIR /dochub
 COPY dochub/plugins /docker-context/dochub/plugins
 RUN cd /docker-context/; \
     find dochub/plugins -name "package.json" -mindepth 0 -maxdepth 4 -exec cp --parents "{}" / \;
 
 
-FROM node:16-alpine as build
+FROM node:20-alpine as build
 
 WORKDIR /dochub
 ENV PATH /dochub/node_modules/.bin:$PATH
