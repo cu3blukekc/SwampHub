@@ -89,80 +89,43 @@
 5. Выполните скрипт `reload_backend.sh`
 6. Проверьте что новые изменения подтянулись на портал DocHub
 
+## Вариант установки в Windows 
+### Установка программного обеспечения
+- Устанавливаем Vagrant https://developer.hashicorp.com/vagrant/downloads (vagrant_2.4.0_windows_amd64.msi)
+- Устанавливаем Visual Studio Code (https://code.visualstudio.com)
+- Устанавливаем Git (https://git-scm.com/downloads)
+- Скачиваем образ focal64 Vagrant box (https://app.vagrantup.com/ubuntu/boxes/focal64)
+- Устанавливаем IntelliJ IDEA (https://www.jetbrains.com/idea/download/?section=windows), например, IntelliJ IDEA Community Edition
+- Устанавливаем VirtualBox (https://www.virtualbox.org/wiki/Downloads)
 
-## Вариант установки в Windows
-
-### С использованием Docker Desktop
-* [Установите Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
-* [Установите VSCode](https://code.visualstudio.com)
-* [Установите Git](https://git-scm.com/downloads)
-* Выполните [Быстрый старт](#быстрый-старт)
-
-### С использованием Vagrand
-#### Установка программного обеспечения
-* [Устанавливаем Vagrant](https://developer.hashicorp.com/vagrant/downloads) (vagrant_2.4.0_windows_amd64.msi)
-* [Устанавливаем VSCode](https://code.visualstudio.com)
-* [Устанавливаем Git](https://git-scm.com/downloads)
-* [Скачиваем образ `focal64 Vagrant box`](https://app.vagrantup.com/ubuntu/boxes/focal64)
-
-#### Создание проекта
-* Создаем каталог проекта, например, `D:\Dochub\`. *Далее все примеры с этим путём*
-* Запускаем VSCode, в котором запускаем терминал (`CTRL+~`) и клонируем репозиторий, используя команду `git clone --recurse-submodules https://github.com/cu3blukekc/SwampHub.git`. В результате - клонирован репозиторий и каталоге `D:\Dochub\` создан подкаталог `SwampHub`
-* Для обновления файлов проекта можно использовать команду `git submodule init && git submodule update`
-* Размещаем в каталоге проекта `D:\Dochub\SwampHub\` файл образа `focal64 Vagrant box`, переименовав его в `Vagrant.box`
-* Создаем в каталоге проекта `D:\Dochub\SwampHub\` файл настройками образа `Vagrant` следующего содержания:
-  ```   
-    Vagrant.configure("2") do |config|
-      config.vm.box = "ubuntu/focal64"
-    
-      config.vm.provider "virtualbox" do |vb|
-        vb.customize ["modifyvm", :id, "--ioapic", "on"]
-        vb.customize ["modifyvm", :id, "--memory", "8192"]
-        vb.customize ["modifyvm", :id, "--cpus", "2"]
-      end
-    
-      portSSH = 2225
-      
-      portMetamodel = 8081
-      portManifest = 8082
-      portBackEnd = 3030
-      portFrontEnd = 8080
-      portPlantUML = 9000
-      
-      docker_compose_version ="2.9.0"
-    
-      config.vm.hostname = "vagrant-swamphub"
-      config.vm.network "private_network", ip: "192.168.44.10"
-    
-      config.vm.network(:forwarded_port, guest: 22, host: portSSH,id: 'ssh')
-      
-      config.vm.network(:forwarded_port, guest: portFrontEnd, host: portFrontEnd)
-      config.vm.network(:forwarded_port, guest: portMetamodel, host: portMetamodel)
-      config.vm.network(:forwarded_port, guest: portManifest, host: portManifest)
-      config.vm.network(:forwarded_port, guest: portBackEnd, host: portBackEnd)
-      config.vm.network(:forwarded_port, guest: portPlantUML, host: portPlantUML)
-      
-      config.vm.provision :shell, inline: "apt-get update"
-      config.vm.provision :shell, inline: "export DOCKER_BUILDKIT=1" # or configure in daemon.json
-      config.vm.provision :shell, inline: "export COMPOSE_DOCKER_CLI_BUILD=1"
-    
-      # Avoid plugin conflicts
-      if Vagrant.has_plugin?("vagrant-vbguest") then
-        config.vbguest.auto_update = false
-      end
-    
-  ```   
-* Запускаем VSCode в каталоге проекта
-* Запускаем терминал (`CTRL+~`) и вводим команду `vagrant box add --name ubuntu/focal64 Vagrant.box`
-* Дождаемся сообщение об успешном завершении операции:
-  ```
-  ==> box: Box file was not detected as metadata. Adding it directly...
-  ==> box: Adding box 'ubuntu/focal64' (v0) for provider:
-  box: Unpacking necessary files from: file://D:/Dochub/SwampHub/Vagrant.box
-  box:
-  ==> box: Successfully added box 'ubuntu/focal64' (v0) for ''!
-  ```
-* Проверяем список доступных виртуальных машин, используя команду `vagrant box list`. В списке должна быть вирутальная машина
+### Создание проекта
+- Создаем каталог проекта, например, "D:\Dochub\"
+	@@ -102,6 +104,7 @@
+- Создаем в каталоге проекта `D:\Dochub\SwampHub\` файл настройками образа `Vagrant` следующего содержания:
+```   
+   Vagrant.configure("2") do |config|
+     
+     config.vm.box = "ubuntu/focal64"
+   
+     config.vm.provider "virtualbox" do |vb|
+	@@ -139,7 +142,8 @@
+     if Vagrant.has_plugin?("vagrant-vbguest") then
+       config.vbguest.auto_update = false
+     end
+     
+   end
+```   
+- Запускаем VS Code в каталоге проекта.
+- Запускаем терминал (`CTRL+~`) и вводим команду `vagrant box add --name ubuntu/focal64 Vagrant.box`.
+- Дождаемся сообщение об успешном завершении операции:
+```
+==> box: Box file was not detected as metadata. Adding it directly...
+==> box: Adding box 'ubuntu/focal64' (v0) for provider:
+box: Unpacking necessary files from: file://D:/Dochub/SwampHub/Vagrant.box
+box:
+==> box: Successfully added box 'ubuntu/focal64' (v0) for ''!
+```
+- Проверяем список доступных виртуальных машин, используя команду `vagrant box list`. В списке должна быть вирутальная машина
   `ubuntu/focal64 (virtualbox, 0)`. Файл `Vagrant.box` можно удалять или переносить в другой каталог.
 
 #### Создание виртуальной машины
