@@ -6,7 +6,7 @@ services:
       context: metamodel
       dockerfile: Dockerfile
     healthcheck:
-      test: ["CMD-SHELL", "wget -O /dev/null http://localhost/root.yaml || exit 1"]
+      test: ["CMD-SHELL", "wget -O /dev/null http://0.0.0.0:80gi || exit 1"]
       interval: 1s
       timeout: 1s
       retries: 60
@@ -22,7 +22,7 @@ services:
       context: manifest
       dockerfile: Dockerfile
     healthcheck:
-      test: ["CMD-SHELL", "wget -O /dev/null http://localhost/root.yaml || exit 1"]
+      test: ["CMD-SHELL", "wget -O /dev/null http://0.0.0.0:80/root.yaml || exit 1"]
       interval: 1s
       timeout: 1s
       retries: 60
@@ -59,11 +59,11 @@ services:
       VUE_APP_DOCHUB_MODE: backend
       VUE_APP_DOCHUB_DATALAKE_CACHE: memory
       VUE_APP_DOCHUB_BACKEND_PORT: 80
-      VUE_APP_DOCHUB_METAMODEL: http://metamodel/root.yaml
-      VUE_APP_DOCHUB_ROOT_MANIFEST: http://manifest/root.yaml
+      VUE_APP_DOCHUB_METAMODEL: http://metamodel:80/root.yaml
+      VUE_APP_DOCHUB_ROOT_MANIFEST: http://manifest:80/root.yaml
       VUE_APP_DOCHUB_APPEND_DOCHUB_DOCS: n
     healthcheck:
-      test: ["CMD-SHELL", "wget -O /dev/null http://localhost/core/storage/jsonata/%28%24.swamphub%29 || exit 1"]
+      test: ["CMD-SHELL", "wget -O /dev/null http://0.0.0.0:80/core/storage/jsonata/%28%24.timestamp%29 || exit 1"]
       interval: 1s
       timeout: 1s
       retries: 60
