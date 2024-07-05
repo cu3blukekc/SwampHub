@@ -5,8 +5,8 @@ services:
     build:
       context: metamodel
       dockerfile: Dockerfile
-    healthcheck:
-      test: ["CMD-SHELL", "wget -O /dev/null http://0.0.0.0:80gi || exit 1"]
+    healthcheck:      
+      test: ["CMD-SHELL", "wget -O /dev/null http://0.0.0.0:80/root.yaml || exit 1"]
       interval: 1s
       timeout: 1s
       retries: 60
