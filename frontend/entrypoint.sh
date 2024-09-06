@@ -14,7 +14,7 @@ rm $APP_FILE.tpl
 FILE=/etc/nginx/nginx.conf
 echo "envsubstr for $FILE"
 cp $FILE $FILE.tpl
-envsubst '$NGINX_BACKEND_LOCATION' < $FILE.tpl > $FILE
+envsubst '$NGINX_BACKEND_LOCATION ${NGINX_METAMODEL_LOCATION}' < $FILE.tpl > $FILE
 rm $FILE.tpl
 
 nginx -g 'daemon off;'

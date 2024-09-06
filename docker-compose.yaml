@@ -86,6 +86,7 @@ services:
       # т.к. это будет использоваться в браузере, поэтому нужен внешний URL 
       # ссылаемся на себя же, в nginx проксируемся в backend
       NGINX_BACKEND_LOCATION: http://backend
+      NGINX_METAMODEL_LOCATION: http://metamodel
 
       VUE_APP_DOCHUB_BACKEND_URL: http://localhost:8080/ # прямой ход в backend - http://localhost:3030
       VUE_APP_DOCHUB_ROOT_DOCUMENT: swamp.welcome
