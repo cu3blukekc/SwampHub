@@ -1,16 +1,16 @@
 [submodule "backend/dochub"]
 	path = backend/dochub
-	url = ../../RabotaRu/DocHub.git
+	url = https://github.com/DocHubTeam/DocHub.git
 [submodule "frontend/dochub"]
 	path = frontend/dochub
-	url = ../../RabotaRu/DocHub.git
+	url = https://github.com/DocHubTeam/DocHub.git
 [submodule "plantuml-server"]
 	path = plantuml
-	url = ../../vlad-markin/plantuml-server.git
+	url = https://github.com/vlad-markin/plantuml-server.git
 	branch = dochub-v2
 [submodule "manifest/manifest"]
 	path = manifest/manifest
-	url = ../../ValentinKozlov/DocHubExampleManifest.git
+	url = https://github.com/ValentinKozlov/DocHubExampleManifest.git
 [submodule "metamodel/metamodel"]
 	path = metamodel/metamodel
-	url = ../../ValentinKozlov/DocHubExampleMetamodel.git
+	url = https://github.com/ValentinKozlov/DocHubExampleMetamodel.git

@@ -90,75 +90,8 @@
 6. Проверьте что новые изменения подтянулись на портал DocHub
 
 ## Вариант установки в Windows 
-### Установка программного обеспечения
-- Устанавливаем Vagrant https://developer.hashicorp.com/vagrant/downloads (vagrant_2.4.0_windows_amd64.msi)
-- Устанавливаем Visual Studio Code (https://code.visualstudio.com)
-- Устанавливаем Git (https://git-scm.com/downloads)
-- Скачиваем образ focal64 Vagrant box (https://app.vagrantup.com/ubuntu/boxes/focal64)
-- Устанавливаем IntelliJ IDEA (https://www.jetbrains.com/idea/download/?section=windows), например, IntelliJ IDEA Community Edition
-- Устанавливаем VirtualBox (https://www.virtualbox.org/wiki/Downloads)
 
-### Создание проекта
-- Создаем каталог проекта, например, "D:\Dochub\"
-	@@ -102,6 +104,7 @@
-- Создаем в каталоге проекта `D:\Dochub\SwampHub\` файл настройками образа `Vagrant` следующего содержания:
-```   
-   Vagrant.configure("2") do |config|
-     
-     config.vm.box = "ubuntu/focal64"
-   
-     config.vm.provider "virtualbox" do |vb|
-	@@ -139,7 +142,8 @@
-     if Vagrant.has_plugin?("vagrant-vbguest") then
-       config.vbguest.auto_update = false
-     end
-     
-   end
-```   
-- Запускаем VS Code в каталоге проекта.
-- Запускаем терминал (`CTRL+~`) и вводим команду `vagrant box add --name ubuntu/focal64 Vagrant.box`.
-- Дождаемся сообщение об успешном завершении операции:
-```
-==> box: Box file was not detected as metadata. Adding it directly...
-==> box: Adding box 'ubuntu/focal64' (v0) for provider:
-box: Unpacking necessary files from: file://D:/Dochub/SwampHub/Vagrant.box
-box:
-==> box: Successfully added box 'ubuntu/focal64' (v0) for ''!
-```
-- Проверяем список доступных виртуальных машин, используя команду `vagrant box list`. В списке должна быть вирутальная машина
-  `ubuntu/focal64 (virtualbox, 0)`. Файл `Vagrant.box` можно удалять или переносить в другой каталог.
-
-#### Создание виртуальной машины
-* Запускаем VSCode в каталоге проекта
-* Запускаем терминал (`CTRL+~`) и вводим команду `vagrant plugin install vagrant-docker-compose` для установки плагина (требуется VPN)
-* В каталоге проекта создаем файл `.env` следующего содержания `VUE_APP_DOCHUB_RELOAD_SECRET=[КЛЮЧ]`
-* Устанавливаем каретку LF вместо CRLF. Параметр "Select end of line sequence" (`CTRL+SHIFT+P` и ввести строку `Change All End Of Line Sequence`) для файлов:
-  ```
-    ./reload_backend.sh
-    ./update.sh
-    ./scripts/build.sh
-    ./scripts/copy.sh
-    ./scripts/install.sh
-    ./scripts/run.sh
-  ```
-* Вводим команду `vagrant up`. Результатом будет созданная вирутальная машина, которая отображается в Oracle VM VirtualBox с именем `SwampHub_defaul_*` и созданный
-  каталог `D:\Dochub\SwampHub\.vagrant` и отобразится сообщение:
-```
-  ==> default: Setting hostname...
-  ==> default: Configuring and enabling network interfaces...
-  ==> default: Mounting shared folders...
-  default: /vagrant => D:/Dev/Dochub/SwampHub
-```
-
-#### Сборка проекта
-* Запускаем в Oracle VM VirtualBox и переходим в виртуальную машину с именем `SwampHub_defaul_*` (команда "Показать")
-* Вводим логин и пароль: vagrant / vagrant
-* Переходим в каталог `cd /vagrant`
-* Запускаем скрипт обновления `./update.sh` (ожидаем завершения)
-* Запускаем скрипт установки `./scripts/install.sh` (ожидаем завершения)
-* Выходим из под администратора командой `exit`, вводим логин и пароль: vagrant / vagrant и ожидаем окончания установки docker (ожидаем появления сообщения `hello-world`)
-* Переходим в каталог `cd /vagrant`
-* Запускаем скрипт сборки проекта `./scripts/build.sh`(ожидаем завершения)
+[Инструкция развертывания в windows](/windows_deployment.md)
 
 #### Запуск проекта
 * Запускаем в Oracle VM VirtualBox и переходим в виртуальную машину с именем `SwampHub_defaul_*` (команда "Показать")

@@ -32,16 +32,13 @@ services:
       - "8082:80"
 
   plantuml:
-    build:
-      context: plantuml
-      dockerfile: Dockerfile.jetty
     healthcheck:
       test: ["CMD-SHELL", "curl --fail http://localhost:8080/plantuml/svg/Iyv9B2vMA4ajBW40 || exit 1"]
       interval: 1s
       timeout: 1s
       retries: 60
       start_period: 1s
-    image: plantuml/plantuml-server:jetty-local    
+    image: seaf/plantuml-server:jetty
     ports:
       - 9000:8080
     environment:
